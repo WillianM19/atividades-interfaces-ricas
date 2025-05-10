@@ -8,6 +8,7 @@ const App = () => {
 
   return (
     <div>
+      <h1 className=''></h1>
       <Header />
       {user ? <Dashboard /> : <LoginForm />}
     </div>

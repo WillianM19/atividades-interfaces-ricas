@@ -1,22 +1,28 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 
-interface User {
+type User = {
   name: string;
-}
+  password: string; // fictícia
+};
 
-interface AuthContextType {
+type AuthContextType = {
   user: User | null;
-  login: (name: string) => void;
+  login: (name: string, password: string) => void;
   logout: () => void;
-}
+};
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = (name: string) => setUser({ name });
-  const logout = () => setUser(null);
+  const login = (name: string, password: string) => {
+    setUser({ name, password });
+  };
+
+  const logout = () => {
+    setUser(null);
+  };
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
@@ -25,8 +31,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export const useAuth = (): AuthContextType => {
+export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) throw new Error('useAuth deve ser usado dentro de AuthProvider');
+  if (!context) throw new Error('useAuth must be used within AuthProvider');
   return context;
 };

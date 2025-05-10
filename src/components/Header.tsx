@@ -5,7 +5,7 @@ const Header = () => {
 
   return (
     <header className="p-4 flex justify-between items-center border-b border-gray-300">
-      <h1 className="text-lg font-bold">Minha App</h1>
+      <h1 className="text-lg font-bold">Atividade Context API</h1>
       <button
         onClick={toggleTheme}
         className="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-600"
