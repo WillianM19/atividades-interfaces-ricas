@@ -26,7 +26,7 @@ const LoginForm = () => {
     <form
       onSubmit={handleSubmit(onSubmit)}
       className={`p-6 space-y-4 max-w-sm mx-auto mt-20 ${
-        isDark ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-800'
+        isDark ? 'bg-gray-700 text-gray-100' : 'bg-white text-gray-800'
       } shadow-lg rounded-2xl transition-colors duration-300`}
     >
       <div>
