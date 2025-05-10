@@ -4,7 +4,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="p-4 flex justify-between items-center border-b border-gray-300">
+    <header className="p-4 px-24 flex justify-between items-center border-b border-gray-300">
       <h1 className="text-lg font-bold">Atividade Context API</h1>
       <button
         onClick={toggleTheme}
