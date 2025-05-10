@@ -1,12 +1,17 @@
-function App() {
+import Header from './components/Header';
+import LoginForm from './components/LoginForm';
+import Dashboard from './components/Dashboard';
+import { useAuth } from './contexts/AuthContext';
+
+const App = () => {
+  const { user } = useAuth();
 
   return (
-    <>
-      <div>
-        <h1>Base</h1>
-      </div>
-    </>
-  )
-}
+    <div>
+      <Header />
+      {user ? <Dashboard /> : <LoginForm />}
+    </div>
+  );
+};
 
-export default App
+export default App;
